@@ -1,63 +1,134 @@
-body {
+/* General Reset and Body */
+* {
   margin: 0;
-  font-family: Arial, sans-serif;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: Arial, sans-serif;
+  color: #010101;
+  background: linear-gradient(to bottom right, #bf91e0, #ebe7f4); /* Purple gradient */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* App Layout */
 .App {
   display: grid;
   grid-template-rows: min-content auto;
   grid-template-columns: 250px auto;
-  height: 100vh;
-  overflow: scroll;
+  max-width: 1200px;
+  width: 100%;
+  height: 90vh;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
+/* Header */
 header {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  background-color: black;
-  color: white;
+  background-color: #4b0082; /* Dark purple */
+  color: #fff;
   grid-column: 1 / span 2;
-  padding: 10px 5px;
+  padding: 15px 20px;
+  font-size: 1.2rem;
 }
 
+/* Form */
 form {
-  padding: 10px;
+  padding: 50px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 15px;
 }
 
 form input,
 form textarea {
-  margin-bottom: 10px;
-  width: 300px;
+  padding: 8px 12px;
+  width: 100%;
+  max-width: 320px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
-nav,
-article {
-  height: 100%;
-  padding: 10px;
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: #b19cd9;
+  box-shadow: 0 0 5px rgba(177, 156, 217, 0.5); /* Light purple shadow */
 }
 
+/* Navigation */
 nav {
-  background-color: #dee9ff;
+  background-color: #f3e8ff; /* Light purple background */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+nav p {
+  padding: 6px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 nav p:hover {
+  background-color: #83e7f4; /* Purple hover effect */
+  color: rgb(227, 50, 23);
   text-decoration: underline;
-  cursor: pointer;
+}
+
+/* Article */
+article {
+  padding: 20px;
+  overflow-y: auto;
 }
 
 article .date {
+  font-size: 0.9rem;
   font-style: italic;
+  color: #666;
 }
 
 article .body {
+  margin-top: 10px;
+  line-height: 1.6;
   white-space: break-spaces;
 }
 
+/* Error Styling */
 .error {
-  background-color: red;
-  color: gold;
-  padding: 5px;
+  background-color: #ffe0e0;
+  color: #b20000;
+  padding: 8px;
+  margin: 10px 0;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .App {
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content auto;
+    height: auto;
+  }
+
+  nav {
+    display: none;
+  }
+
+  header {
+    grid-column: 1;
+  }
 }
